@@ -1,6 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent {
 
   private authService=inject(AuthService)
-
+  private router = inject(Router)
 
   loginForm=new FormGroup({
     email:new FormControl("", [Validators.email, Validators.required]),
@@ -21,6 +22,7 @@ export class LoginComponent {
     this.authService.loginConNest(this.loginForm.value).subscribe(
       (res)=>{
         console.log(res)
+        this.router.navigate(["/admin"])
       },
       (error)=>{
         console.log(error)
