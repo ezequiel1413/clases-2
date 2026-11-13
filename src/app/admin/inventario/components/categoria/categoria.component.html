@@ -16,13 +16,24 @@
         <form [formGroup]="categoriaForm">
             <div class="field">
                 <label for="name">Nombre</label>
-                <input type="text" pInputText id="name" required autofocus/>
-                <small class="ng-dirty ng-invalid">El campo nombre es obligatorio</small>
+                <input type="text"
+                pInputText 
+                id="name"
+                formControlName="nombre"
+                required 
+                autofocus/>
+                <small class="ng-dirty ng-invalid">
+                    El campo nombre es obligatorio
+                </small>
 
             </div>
             <div class="field">
             <label for="det">Detalle</label>
-            <input type="text" pInputText id="det" required/>
+            <input type="text" 
+            pInputText 
+            id="det"
+            formControlName="detalle" 
+            required/>
             </div>
         </form>    
         <ng-template pTemplate="footer">
@@ -34,7 +45,7 @@
     </p-dialog>
 
      <p-table [value]="categorias" [tableStyle]="{ 'min-width': '50rem' }">
-            <ng-template #header>
+            <ng-template pTemplate="header">
                 <tr>
                     <th>ID</th>
                     <th>NAME</th>
@@ -47,6 +58,12 @@
                     <td>{{ categoria.id }}</td>
                     <td>{{ categoria.nombre }}</td>
                     <td>{{ categoria.detalle }}</td>
+                    <td>
+                        <div class="flex">
+                            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editarCategoria(categoria)"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="eliminarCategoria(categoria)"></button>
+                         </div>
+                    </td>
                     
                 </tr>
             </ng-template>
