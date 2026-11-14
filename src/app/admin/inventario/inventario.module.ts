@@ -10,7 +10,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { Ripple } from 'primeng/ripple';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { ToolbarModule } from 'primeng/toolbar';
 
 
 @NgModule({
@@ -26,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ButtonModule,
     InputTextModule,
     Ripple,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToolbarModule
 ]
 })
 export class InventarioModule { }
